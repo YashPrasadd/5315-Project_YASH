@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Search</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Restaurant Search</h1>
+        <form action="/search" method="GET">
+            <label for="page">Page:</label>
+            <input type="number" name="page" id="page" required>
+            <label for="perPage">Per Page:</label>
+            <input type="number" name="perPage" id="perPage" required>
+            <label for="borough">Borough:</label>
+            <input type="text" name="borough" id="borough" required>
+            <button type="submit">Search</button>
+        </form>
+        {{#if restaurants}}
+            <h2>Search Results</h2>
+            <ul>
+                {{#each restaurants}}
+                    <li>{{this.name}} - {{this.borough}}</li>
+                {{/each}}
+            </ul>
+        {{/if}}
+    </div>
+</body>
+</html>
+
+
